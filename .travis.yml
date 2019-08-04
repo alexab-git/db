@@ -4,7 +4,6 @@ python:
 install:
 - pip install ansible molecule paramiko apache-libcloud
 - ansible-galaxy install -r "$(pwd)/molecule/default/requirements.yml"
-
 after_script:
 - molecule destroy
 env:
@@ -24,5 +23,6 @@ before_install:
 - tar xvf secrets.tar
 - mv google_compute_engine /home/travis/.ssh/
 - chmod 0600 /home/travis/.ssh/google_compute_engine
+- export ANSIBLE_HOST_KEY_CHECKING=False
 
 
