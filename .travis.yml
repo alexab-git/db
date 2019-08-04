@@ -6,8 +6,7 @@ install:
 after_script:
 - molecule destroy
 env:
-  matrix:
-    #  - GCE_CREDENTIALS_FILE="\\\$(pwd)/credentials.json"
+  matrix: 
   global:
   - secure: ceK6HRcjIH8hPnDvC3h6Krsculo0M4MzguEeeRmhBRj9AlWDIKne1xT6GxzzaLY0jog+fmrqADEJefzJlnq+k/a8BFNTPnkBxOwFoUJ5Svnj1Wp+h9eYknRpgoAVh/tqZl3fhj5hn2PMRz7DZRj/fYIQga1UbPVAmgxLgdIcttMdA35UCUk3qaW3YXVSY74a/60izD3+eQlhgFKvmHW7KyLkwMVm2MVkGM+GrXh0Wk2RN8iKwxu8lOvKe6dvWcKfkf0u+VQQqAuCSetBV3aoXVWSkHE9z1mVzikIsZ8zhwl1Ui5Nk4Ap5JyUST8BPYBcDrTFcnjPDgdwA6pHc4Rbnbb5/kLuEm/W4gmrtUffKlzaXTYDtlkU+2SMek3uvYPTkONICnQ9xOJKHWWSOLc5TZkzkg6EBrHn3E1AFrBBpJmY+rw/BnMElev3DUVaTCQndTipnz1i+vaEq9lsTIyvdxTErrKYbOAcZWleu8jVSWDxLFl55AsMkjaoaQx/8dWghf4izGistbRnR3JQ0jrf0zEJUyvvTyHWhHmJNd7KqBUQ8a3pZIcdps+4M+1VBW7JzUvX0beipVU/RLHVE13wyCl4m9+bpLiEzmBCpcozqYcbWE81jkxFZBCudGaBK6H40uzVNF+wOf/wSggvISBkhQ5iZrs+vehYfEjHtfYvOmE=
   - secure: g/K4avFr//Ci8/VXBYdgopDcM6/3Zb2o28Zp+RzPJCz1d1vkoINxPCBsleVplQYWW/gixw4cssZlVoBXZr5f9G1Jp0OwGRS8J/7nE7XdTrNJTLVN9Jl4UA4jR1LezLel5xzSrZxkV3GBzsUkBXZB8qPP0hZUn47LrZwHtH0a0gpO6cQuQayQ1c2g4IA/4BLSFbTHqvXfb/I0f2bHg7mLODB47pIo71LRpPxqQJ43CR1sbB+qRz7ylAxvKJhOvt5qAPTlGbKAt67RWREAmNQrZAhlg4UjksT9MhkFv8zzorP/CKyt/dfV+cbxi/x8jP3P2bOdcMds1ofRZlX5B8Kqm3vS5SpecEcQK/m56vGKm+oqpf/a+oBRWqtGhMP73tnJvMQz5mfsJLdMA1HMZhgf/wzXZqsdXUKq7mRMNeJ7n1M3QUlZGh4Tws0P4NSOxcBVBNy9ZsoeThx36qe6JKXnzbZAiIMxRwkKhp8412pMXv248G063yoIiWKDo4zfifC6V0gPSU5hRCpFJtv7I+7VTul/b6WsM/x0kHKez8jS+vcHnkn3s0bnpMQdn5oVMm42yMsz+9kwhnGQTRqghvfhF1NqzgeqGYppGJqOpRnJ71qxP/WnpfR0mOwGa8tS3l4yNftNp2TIuD86zn1tEFb/zjx5Gwk89uLZSugCXELlp9M=
@@ -17,7 +16,8 @@ script:
 - molecule converge
 - molecule verify
 before_install:
-- openssl aes-256-cbc -K $encrypted_069219259cd2_key -iv $encrypted_069219259cd2_iv -in secrets.tar.enc -out secrets.tar -d
+- openssl aes-256-cbc -K $encrypted_069219259cd2_key -iv $encrypted_069219259cd2_iv
+  -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
 - mv google_compute_engine /home/travis/.ssh/
 - chmod 0600 /home/travis/.ssh/google_compute_engine
