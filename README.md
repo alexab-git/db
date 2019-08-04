@@ -13,11 +13,11 @@ A description of the settable variables for this role should go here, including 
 
 Example playbook
 ----------------
-
+```
 - name: Configure MongoDB
   hosts: db
   become: true
   roles:
     - db
-
+```
 
