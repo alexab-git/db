@@ -3,7 +3,7 @@ python:
 - '3.6'
 install:
 - pip install ansible molecule paramiko apache-libcloud
-- ansible-galaxy install -r requirements.yml
+- ansible-galaxy install -r "$(pwd)/molecule/default/requirements.yml"
 
 after_script:
 - molecule destroy
