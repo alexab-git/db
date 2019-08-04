@@ -2,7 +2,9 @@ language: python
 python:
 - '3.6'
 install:
-- pip install ansible molecule paramiko apache-libcloud
+- pip install ansible ansible-galaxy molecule paramiko apache-libcloud
+- ansible-galaxy install -r requirements.yml
+
 after_script:
 - molecule destroy
 env:
@@ -22,5 +24,5 @@ before_install:
 - tar xvf secrets.tar
 - mv google_compute_engine /home/travis/.ssh/
 - chmod 0600 /home/travis/.ssh/google_compute_engine
-- ansible-galaxy install -r requirements.yml
+
 
