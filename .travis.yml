@@ -1,6 +1,7 @@
 language: python
 python:
 - '3.6'
+dist: xenial
 install:
 - pip install ansible molecule paramiko apache-libcloud
 - ansible-galaxy install -r "$(pwd)/molecule/default/requirements.yml"
