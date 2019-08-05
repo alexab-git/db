@@ -19,7 +19,6 @@ script:
 - molecule converge
 - molecule verify
 before_install:
-- apt update openssl
 - openssl aes-256-cbc -K $encrypted_069219259cd2_key -iv $encrypted_069219259cd2_iv
   -in secrets.tar.enc -out secrets.tar -d
 - tar xvf secrets.tar
