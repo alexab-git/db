@@ -1,5 +1,6 @@
 DB role
 =========
+[![Build Status](https://travis-ci.org/alexab-git/db.svg?branch=master)](https://travis-ci.org/alexab-git/db)
 Роль создана для установки и конфигурации СУБД Mongo для приложения reddit
 
 
